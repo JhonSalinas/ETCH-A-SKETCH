@@ -43,7 +43,10 @@ if(isNaN(n) || n <= 0 ){
     //this is for the pencil efect
     const allDivs = document.querySelectorAll('.child');
     //this add the class white at the div that is clicked
-    const randomColor = Math.floor(Math.random()*(16**6 - 1));
+    const redColor = Math.floor(Math.random()*(16**2 - 1));
+    const greenColor = Math.floor(Math.random()*(16**2 - 1));
+    const blueColor = Math.floor(Math.random()*(16**2 - 1));
+
     let countpass = 0;
 
     allDivs.forEach(element => element.addEventListener('mouseover', event => {
@@ -51,11 +54,13 @@ if(isNaN(n) || n <= 0 ){
     // event.target.classList.setAttribute('style','background-Color: white;');
     countpass++;
     let dimmer = Math.floor(countpass/((n ** 2)/10));
-    console.log(dimmer);
+    // console.log(dimmer);
     // (randomColor - Math.floor((dimmer / 10)*randomColor) )
-    const fadingColor = randomColor - Math.floor((dimmer / 10)*randomColor);
-    console.log(fadingColor.toString(16));
-    event.target.setAttribute('style', `background-Color: #${fadingColor.toString(16)};`);
+    const fadingColorRed = redColor - Math.floor((dimmer / 10)*redColor);
+    const fadingColorGreen = greenColor - Math.floor((dimmer / 10)*greenColor);
+    const fadingColorBlue = blueColor - Math.floor((dimmer / 10)*blueColor);
+    // console.log(fadingColor.toString(16));
+    event.target.setAttribute('style', `background-Color: RGB(${fadingColorRed},${fadingColorGreen},${fadingColorBlue});`);
 }));
 }     
 
