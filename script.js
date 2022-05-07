@@ -22,7 +22,7 @@ container.setAttribute('style', 'display: grid; grid-template-columns: repeat(16
 //this is for the pencil efect
 const allDivs = document.querySelectorAll('.child');
 //this add the class white at the div that is clicked
-allDivs.forEach(element => element.addEventListener('click', event => {
+allDivs.forEach(element => element.addEventListener('mouseover', event => {
     event.target.classList.add('painted');
     // event.target.classList.setAttribute('style','background-Color: white;');
     console.log(event.target);
