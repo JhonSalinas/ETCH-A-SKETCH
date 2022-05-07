@@ -43,11 +43,19 @@ if(isNaN(n) || n <= 0 ){
     //this is for the pencil efect
     const allDivs = document.querySelectorAll('.child');
     //this add the class white at the div that is clicked
+    const randomColor = Math.floor(Math.random()*(16**6 - 1));
+    let countpass = 0;
+
     allDivs.forEach(element => element.addEventListener('mouseover', event => {
     // event.target.classList.add('painted');
     // event.target.classList.setAttribute('style','background-Color: white;');
-    // console.log(event.target);
-    event.target.setAttribute('style', 'background-Color: red');
+    countpass++;
+    let dimmer = Math.floor(countpass/((n ** 2)/10));
+    console.log(dimmer);
+    // (randomColor - Math.floor((dimmer / 10)*randomColor) )
+    const fadingColor = randomColor - Math.floor((dimmer / 10)*randomColor);
+    console.log(fadingColor.toString(16));
+    event.target.setAttribute('style', `background-Color: #${fadingColor.toString(16)};`);
 }));
 }     
 
